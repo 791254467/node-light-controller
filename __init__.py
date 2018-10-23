@@ -36,8 +36,8 @@ class NodeLightController(MycroftSkill):
   @intent_handler(IntentBuilder("LightsOnOff").require("Color").require("State"))
   def handle_lights_onoff(self, message):
     # Initialize the URL for Thinger API
-    GREEN_LED_URL = "http://192.168.0.104/v2/users/neo/devices/NodeMCU/greenled"
-    RED_LED_URL = "http://192.168.0.104/v2/users/neo/devices/NodeMCU/redled"
+    GREEN_LED_URL = "http://192.168.0.101:80/v2/users/machunyu/devices/esp8266/greenled"
+    RED_LED_URL = "http://192.168.0.101:80/v2/users/machunyu/devices/esp8266/redled"
     if message.data["State"] == "on":
       payload = {"in":True}
       self.speak_dialog("light.is.on",data={"Color":message.data["Color"],"State":message.data["State"]})
@@ -67,8 +67,8 @@ class NodeLightController(MycroftSkill):
   @intent_handler(IntentBuilder("RoomTemp").require("Room").require("temperature"))
   def handle_roomTemp(self,message):
     # Initialize the URL for Thinger API
-    ROOM_TEMPERATURE_URL = "http://192.168.0.104/v2/users/neo/devices/NodeMCU/temperature";
-    HEADERS = {'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXYiOiJOb2RlTUNVIiwiaWF0IjoxNTI3MzQyMzM2LCJqdGkiOiI1YjA5NjUwMDIyN2MwMDMwN2RjMGEwNTYiLCJyZXMiOlsidGVtcGVyYXR1cmUiXSwidXNyIjoibmVvIn0.RwKltJHnxUgeZNMIdyG9gRaKUqTKX8uZsvTDO5KR1t0'}
+    ROOM_TEMPERATURE_URL = "http://192.168.0.101:80/v2/users/machunyu/devices/esp8266/temperature";
+    HEADERS = {'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NDAzMTkyMDgsImlhdCI6MTU0MDMxMjAwOCwidXNyIjoibWFjaHVueXUifQ.xJFs0kCBv8nQFuzh0uuE1lVj0yrz1UwDBmKFckLltWA'}
     try:
       res = requests.get(ROOM_TEMPERATURE_URL,headers=HEADERS)
       # this line converts the response to a python dict which can then be parsed easily
