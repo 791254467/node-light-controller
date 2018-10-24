@@ -81,7 +81,7 @@ class NodeLightController(MycroftSkill):
       print(e)
       
 def callThinger(URL,data):
-    # HEADERS = {'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXYiOiJOb2RlTUNVIiwiaWF0IjoxNTI3MzMyNjYzLCJqdGkiOiI1YjA5M2YzNzIyN2MwMDMwN2RjMGEwNTUiLCJyZXMiOlsiZ3JlZW5sZWQiLCJyZWRsZWQiXSwidXNyIjoibmVvIn0.GXxXRJGcQgL-OPqS7UT3BKSyWmJ_qOVFtnCgHs8w_iw'}
+    HEADERS = {'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXYiOiJlc3A4MjY2IiwiaWF0IjoxNTQwMzM5NjExLCJqdGkiOiI1YmNmYjc5YjY1MjNmODk2ZDE4Zjg4OTkiLCJyZXMiOlsiZ3JlZW5sZWQiXSwidXNyIjoibWFjaHVueXUifQ.bpUYOY5gV84Fbx3dpPRYT6cYpyEGI_J21sYKB7NfwZU'}
     try:
       res = requests.get(URL, json=data,headers=HEADERS)
       return 0
