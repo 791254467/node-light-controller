@@ -37,7 +37,7 @@ class NodeLightController(MycroftSkill):
   def handle_lights_onoff(self, message):
     # Initialize the URL for Thinger API
     GREEN_LED_URL = "http://192.168.0.101:80/v2/users/machunyu/devices/esp8266/greenled"
-    HEADERS = {'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXYiOiJlc3A4MjY2IiwiaWF0IjoxNTQwMzM5NjExLCJqdGkiOiI1YmNmYjc5YjY1MjNmODk2ZDE4Zjg4OTkiLCJyZXMiOlsiZ3JlZW5sZWQiXSwidXNyIjoibWFjaHVueXUifQ.bpUYOY5gV84Fbx3dpPRYT6cYpyEGI_J21sYKB7NfwZU'}
+    #HEADERS = {'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXYiOiJlc3A4MjY2IiwiaWF0IjoxNTQwMzM5NjExLCJqdGkiOiI1YmNmYjc5YjY1MjNmODk2ZDE4Zjg4OTkiLCJyZXMiOlsiZ3JlZW5sZWQiXSwidXNyIjoibWFjaHVueXUifQ.bpUYOY5gV84Fbx3dpPRYT6cYpyEGI_J21sYKB7NfwZU'}
     RED_LED_URL = "http://192.168.0.101:80/v2/users/machunyu/devices/esp8266/redled"
     if message.data["State"] == "on":
       payload = {"in":True}
@@ -69,7 +69,7 @@ class NodeLightController(MycroftSkill):
   def handle_roomTemp(self,message):
     # Initialize the URL for Thinger API
     ROOM_TEMPERATURE_URL = "http://192.168.0.101:80/v2/users/machunyu/devices/esp8266/temperature";
-    HEADERS = {'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXYiOiJlc3A4MjY2IiwiaWF0IjoxNTQwMzM5NjExLCJqdGkiOiI1YmNmYjc5YjY1MjNmODk2ZDE4Zjg4OTkiLCJyZXMiOlsiZ3JlZW5sZWQiXSwidXNyIjoibWFjaHVueXUifQ.bpUYOY5gV84Fbx3dpPRYT6cYpyEGI_J21sYKB7NfwZU'}
+    HEADERS = {"Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NDAzNTc5NzUsImlhdCI6MTU0MDM1MDc3NSwidXNyIjoibWFjaHVueXUifQ.m8OoxbwArfvSgzyYO7onSLdtuBlYwY79KzlAijJHPvo"}
     try:
       res = requests.get(ROOM_TEMPERATURE_URL,headers=HEADERS)
       # this line converts the response to a python dict which can then be parsed easily
@@ -81,7 +81,7 @@ class NodeLightController(MycroftSkill):
       print(e)
       
 def callThinger(URL,data):
-    HEADERS = {'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXYiOiJOb2RlTUNVIiwiaWF0IjoxNTI3MzMyNjYzLCJqdGkiOiI1YjA5M2YzNzIyN2MwMDMwN2RjMGEwNTUiLCJyZXMiOlsiZ3JlZW5sZWQiLCJyZWRsZWQiXSwidXNyIjoibmVvIn0.GXxXRJGcQgL-OPqS7UT3BKSyWmJ_qOVFtnCgHs8w_iw'}
+    # HEADERS = {'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXYiOiJOb2RlTUNVIiwiaWF0IjoxNTI3MzMyNjYzLCJqdGkiOiI1YjA5M2YzNzIyN2MwMDMwN2RjMGEwNTUiLCJyZXMiOlsiZ3JlZW5sZWQiLCJyZWRsZWQiXSwidXNyIjoibmVvIn0.GXxXRJGcQgL-OPqS7UT3BKSyWmJ_qOVFtnCgHs8w_iw'}
     try:
       res = requests.get(URL, json=data,headers=HEADERS)
       return 0
