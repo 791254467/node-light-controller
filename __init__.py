@@ -69,7 +69,7 @@ class NodeLightController(MycroftSkill):
   def handle_roomTemp(self,message):
     # Initialize the URL for Thinger API
     ROOM_TEMPERATURE_URL = "http://192.168.0.101:80/v2/users/machunyu/devices/esp8266/temperature";
-    HEADERS = {"Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NDAzNTc5NzUsImlhdCI6MTU0MDM1MDc3NSwidXNyIjoibWFjaHVueXUifQ.m8OoxbwArfvSgzyYO7onSLdtuBlYwY79KzlAijJHPvo"}
+    HEADERS = {'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NDAzNTc5NzUsImlhdCI6MTU0MDM1MDc3NSwidXNyIjoibWFjaHVueXUifQ.m8OoxbwArfvSgzyYO7onSLdtuBlYwY79KzlAijJHPvo'}
     try:
       res = requests.get(ROOM_TEMPERATURE_URL,headers=HEADERS)
       # this line converts the response to a python dict which can then be parsed easily
